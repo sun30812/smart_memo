@@ -173,6 +173,7 @@ fun RemoveMemoDialog(onRemove: (() -> Unit)?, onDismiss: () -> Unit) {
                 if (onRemove != null) {
                     onRemove()
                 }
+                onDismiss()
             }) {
                 Text(text = stringResource(id = R.string.remove))
             }

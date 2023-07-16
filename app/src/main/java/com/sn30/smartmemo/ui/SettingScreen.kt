@@ -15,11 +15,13 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.sn30.smartmemo.R
 
 /**
  * 설정화면에 해당된다.
@@ -35,8 +37,8 @@ fun SettingScreen(viewModel: SettingViewModel = viewModel(factory = SettingViewM
         modifier = Modifier.fillMaxSize(),
     ) {
         BooleanSettingTile(
-            title = "바로 지우기",
-            detail = "경고창 없이 메모를 바로 지우는 설정입니다.",
+            title = stringResource(id = R.string.quick_delete),
+            detail = stringResource(id = R.string.quick_delete_desc),
             isChecked = viewModel.deleteConfirmFlow.collectAsState(initial = false).value,
             onCheckedChanged = { viewModel.updateDeleteConfirmSetting(it) }
         )
@@ -59,7 +61,9 @@ fun BooleanSettingTile(
     title: String, detail: String, isChecked: Boolean,
     onCheckedChanged: (Boolean) -> Unit
 ) {
-    Row(horizontalArrangement = Arrangement.SpaceBetween, modifier = Modifier.fillMaxWidth().padding(12.dp)) {
+    Row(horizontalArrangement = Arrangement.SpaceBetween, modifier = Modifier
+        .fillMaxWidth()
+        .padding(12.dp)) {
         Column {
             Text(text = title, fontWeight = FontWeight.Bold, fontSize = 28.sp)
             Text(text = detail)

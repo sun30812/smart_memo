@@ -11,4 +11,6 @@
     <string name="remove_memo">Remove memo</string>
     <string name="require_remove_memo">Are you sure to remove memo?</string>
     <string name="remove">Remove</string>
+    <string name="quick_delete">Quick Delete</string>
+    <string name="quick_delete_desc">Delete memo without confirm</string>
 </resources>

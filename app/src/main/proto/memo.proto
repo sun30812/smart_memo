@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option java_package = "com.sn30.smartmemo";
+option java_multiple_files = true;
+
+message Memo {
+  string title = 1;
+  string detail = 2;
+}
+
+message MemoList {
+  repeated Memo list = 1;
+}
